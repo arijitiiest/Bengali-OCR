@@ -1,0 +1,160 @@
+body {
+  padding: 9em;
+  padding-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1 {
+  text-shadow: 0px 0px 4px #2f6627;
+  color: rgb(47, 0, 255);
+  display: inline-block;
+}
+
+hr {
+  width: 100%;
+  margin: 0 auto;
+  border: 0;
+  height: 1px;
+  box-shadow: 0px 0px 5px 0px rgb(47, 0, 255);
+}
+
+#canvas {
+  display: block;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0px 0px 18px 0px rgb(47, 0, 255);
+}
+
+#picture {
+  display: block;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0px 0px 18px 0px rgb(47, 0, 255);
+}
+
+.button {
+  -moz-box-shadow: 0px 0px 30px 0px rgb(47, 0, 255);
+  -webkit-box-shadow: 0px 0px 30px 0px rgb(47, 0, 255);
+  box-shadow: 0px 0px 18px 0px rgb(47, 0, 255);
+  background-color: rgb(47, 0, 255);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 46px;
+  text-decoration: none;
+  text-shadow: 0px 0px 18px #2f6627;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: rgb(47, 0, 255);
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+.content {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.content-left {
+  float: left;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.content-center {
+  float: left;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.content-right {
+  float: left;
+  margin-top: 1rem;
+}
+
+.prediction {
+  width: 200px;
+  text-align: center;
+  margin-right: 10rem;
+}
+
+.pred_title {
+  font-size: 24px;
+  color: rgb(47, 0, 255);
+  font-weight: bold;
+}
+
+.predicted {
+  margin-top: 1rem;
+  font-size: 24px;
+  color: #d81d26;
+}
+
+/* table.result tr {
+  border-bottom: none;
+}
+
+table.result > tbody > tr:nth-child(odd) {
+  background-color: rgba(242, 242, 242, 0.5);
+}
+
+table.result > tbody > tr > td {
+  border-radius: 0;
+}
+
+table th,
+td {
+  border: none;
+  padding: 15px;
+  text-align: center;
+}
+
+.th-1 {
+  width: 50px;
+}
+
+.th-2 {
+  width: 250px;
+}
+
+.th-3 {
+  width: 250px;
+} */
+
+table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.answer {
+  text-shadow: 0px 0px 18px #2f6627;
+  font-size: 18px;
+  font-style: oblique;
+  font-weight: bolder;
+}
+
+@media (max-width: 1100px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+}

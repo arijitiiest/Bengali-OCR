@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="{{ url_for('static', filename='img.jpg') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+
+    <title>Digit Recognition Project</title>
+</head>
+<body>
+    
+
+    <h1>Write One Digit</h1>
+    <hr/>
+
+    <div class="content">
+      <div class="content-left">
+          <canvas id="canvas"></canvas>
+            <a href="#" class="button" id="reset">reset</a>
+      </div>
+
+      <div class="content-center">
+          <canvas id="picture"></canvas>
+          <div class="button" id="predict">predict</div>
+      </div>
+
+      <div class="content-right">
+        <div class="prediction">    
+          <div class="pred_title">Prediction</div>
+          <div>
+            <div class="predicted"></div>
+            <div class="predicted"></div>
+            <div class="predicted"></div>
+            <div class="predicted"></div>
+            <div class="predicted"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+</body>
+</html>

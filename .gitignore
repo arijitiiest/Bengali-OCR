@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+BanglaLekha-Isolated
+myenv
+__pycache__
+*.pkl
+*.npy
