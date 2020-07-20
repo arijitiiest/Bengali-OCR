@@ -8,10 +8,10 @@ window.onload = () => {
   const ctx = canvas.getContext("2d");
   const lineWidth = 45;
   const lineColor = "#000000";
-  const canvasWidth = 561; // 20 * 28 + 1
-  const canvasHeight = 561; // 20 * 28 + 1
-  const pictureWidth = 280; // 10 * 28
-  const pictureHeight = 280; // 10 * 28
+  const canvasWidth = 641; // 20 * 28 + 1
+  const canvasHeight = 641; // 20 * 28 + 1
+  const pictureWidth = 320; // 10 * 28
+  const pictureHeight = 320; // 10 * 28
 
   let isDrawing = false;
   let curPos;
@@ -63,15 +63,15 @@ window.onload = () => {
       let inputs = [];
       const input = document.createElement("canvas").getContext("2d");
       /* Map the original data size to a size of 28*28 (28 * 28 = 784) */
-      input.drawImage(img, 0, 0, img.width, img.height, 0, 0, 28, 28);
-      let data = input.getImageData(0, 0, 28, 28).data;
-      for (let i = 0; i < 28; ++i) {
-        for (let j = 0; j < 28; ++j) {
-          let px = 4 * (i * 28 + j);
+      input.drawImage(img, 0, 0, img.width, img.height, 0, 0, 32, 32);
+      let data = input.getImageData(0, 0, 32, 32).data;
+      for (let i = 0; i < 32; ++i) {
+        for (let j = 0; j < 32; ++j) {
+          let px = 4 * (i * 32 + j);
           let r = data[px];
           let g = data[px + 1];
           let b = data[px + 2];
-          inputs[i * 28 + j] = (r + g + b) / 3;
+          inputs[i * 32 + j] = (r + g + b) / 3;
           /* Map the pixels of canvas `input` to canvas `picture` */
           picCtx.fillStyle = "rgb(" + [r, g, b].join(",") + ")";
           picCtx.fillRect(j * 10, i * 10, 10, 10);
