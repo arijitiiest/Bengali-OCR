@@ -8,11 +8,6 @@ from keras.optimizers import Adam
 from tensorflow.python.keras.backend import set_session
 
 
-# from tensorflow import keras
-# ### hack tf-keras to appear as top level keras
-# import sys
-# sys.modules['keras'] = keras
-
 
 MODEL_DIR = os.getcwd() + '/models/'
 MODEL_LENET_JSON = 'LeNet_model.json'
@@ -20,44 +15,55 @@ MODEL_RESNET_JSON = 'ResNet_model.json'
 MODEL_LENET_WEIGHTS = 'LeNet_model.h5'
 MODEL_RESNET_WEIGHTS = 'ResNet_model.h5'
 
+
+
+# Load LeNet Model
+sess1 = tf.Session()
+graph1 = tf.compat.v1.get_default_graph()
+
+set_session(sess1)
 lenet_json_file = open(MODEL_DIR + MODEL_LENET_JSON)
 lenet_loaded_model_json = lenet_json_file.read()
 lenet_json_file.close()
 
+model_LeNet = model_from_json(lenet_loaded_model_json)
+model_LeNet.load_weights(MODEL_DIR + MODEL_LENET_WEIGHTS)
+lenet_adam = Adam(lr=5e-4)
+model_LeNet.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer=lenet_adam)
+
+# Load ResNet Model
+sess2 = tf.Session()
+graph2 = tf.compat.v1.get_default_graph()
+
+set_session(sess2)
 resnet_json_file = open(MODEL_DIR + MODEL_RESNET_JSON)
 resnet_loaded_model_json = resnet_json_file.read()
 resnet_json_file.close()
 
-model_LeNet = model_from_json(lenet_loaded_model_json)
-model_LeNet.load_weights(MODEL_DIR + MODEL_LENET_WEIGHTS)
-# lenet_adam = Adam(lr=5e-4)
-# model_LeNet.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer=lenet_adam)
-# model_LeNet._make_predict_function()
-
 model_ResNet = model_from_json(resnet_loaded_model_json)
 model_ResNet.load_weights(MODEL_DIR + MODEL_RESNET_WEIGHTS)
-# resnet_adam = Adam(lr=0.0001)
-# model_ResNet.compile(optimizer= resnet_adam, loss='categorical_crossentropy', metrics=['accuracy'])
-# model_ResNet._make_predict_function()
-
-
-tf_config = some_custom_config
-sess = tf.Session(graph=tf.Graph())
-# graph = tf.get_default_graph()
+resnet_adam = Adam(lr=0.0001)
+model_ResNet.compile(optimizer= resnet_adam, loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 def predict_digit(data):
-    global sess
-    global graph
-    # with graph.as_default():
-        # set_session(sess)
-    lenet_predict = model_LeNet.predict(data)
-    resnet_predict = model_ResNet.predict(data)
-    print(lenet_predict)
-    print(resnet_predict)
-    return [lenet_predict[0], resnet_predict[0]]
-    # return []
+    global sess1
+    global sess2
+    global graph1
+    global graph2
 
+    with graph1.as_default():
+        set_session(sess1)
+        lenet_predict = model_LeNet.predict(data)
+    
+    with graph2.as_default():
+        set_session(sess2)
+        resnet_predict = model_ResNet.predict(data)
+
+    lenet_value = np.where(lenet_predict[0] == np.amax(lenet_predict[0]))[0][0]
+    resnet_value = np.where(resnet_predict[0] == np.amax(resnet_predict[0]))[0][0]
+
+    return [str(lenet_value), str(resnet_value)]
 
 app = Flask(__name__)
 

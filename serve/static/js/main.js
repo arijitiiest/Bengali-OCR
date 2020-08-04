@@ -89,11 +89,8 @@ window.onload = () => {
       data: JSON.stringify(p_data),
       success: (ret) => {
           console.log(ret.data);
-          predicted[0].innerHTML = "SVM: " + ret.data[0];
-          predicted[1].innerHTML = "XGB: " + ret.data[1];
-          predicted[2].innerHTML = "BAG: " + ret.data[2];
-          predicted[3].innerHTML = "RF:  " + ret.data[3];
-          predicted[4].innerHTML = "KNN: " + ret.data[4];
+          predicted[0].innerHTML = "LeNet : " + ret.data[0];
+          predicted[1].innerHTML = "ResNet : " + ret.data[1];
       },
     });
   };
@@ -109,3 +106,5 @@ window.onload = () => {
     $(".result td").text("").removeClass("answer");
   }
 };
+
+let bengalichar_codes = []

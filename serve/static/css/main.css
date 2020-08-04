@@ -90,7 +90,7 @@ hr {
 }
 
 .prediction {
-  width: 200px;
+  width: 220px;
   text-align: center;
   margin-right: 10rem;
 }
@@ -103,8 +103,9 @@ hr {
 
 .predicted {
   margin-top: 1rem;
-  font-size: 24px;
-  color: #d81d26;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f50612;
 }
 
 /* table.result tr {
