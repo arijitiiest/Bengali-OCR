@@ -4,5 +4,5 @@ myenv
 __pycache__
 *.pkl
 *.npy
-models
+models/
 .vscode
