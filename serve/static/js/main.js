@@ -89,8 +89,8 @@ window.onload = () => {
       data: JSON.stringify(p_data),
       success: (ret) => {
           console.log(ret.data);
-          predicted[0].innerHTML = "LeNet : " + ret.data[0];
-          predicted[1].innerHTML = "ResNet : " + ret.data[1];
+          predicted[0].innerHTML = "LeNet : " + bengalichar_codes[ret.data[0]];
+          predicted[1].innerHTML = "ResNet : " + bengalichar_codes[ret.data[1]];
       },
     });
   };
