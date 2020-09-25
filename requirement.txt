@@ -1,6 +1,7 @@
 absl-py==0.9.0
 astor==0.8.1
 attrs==19.3.0
+autopep8==1.5.3
 backcall==0.1.0
 bleach==3.1.4
 click==7.1.2
@@ -56,6 +57,7 @@ prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 protobuf==3.12.2
 ptyprocess==0.6.0
+pycodestyle==2.6.0
 Pygments==2.6.1
 pyparsing==2.4.7
 pyrsistent==0.16.0
@@ -77,6 +79,7 @@ tensorflow-estimator==1.14.0
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
+toml==0.10.1
 tornado==6.0.4
 traitlets==4.3.3
 wcwidth==0.1.9
